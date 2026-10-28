@@ -1,4 +1,3 @@
-
 :root {
     --bg-color: #1e1e2e;
     --window-bg: #252538;
@@ -21,9 +20,13 @@ body {
 body.pastel-theme {
     --bg-color: #ffe6f0;
     --window-bg: #ffffff;
-    --window-header-bg: #ffd1dc;
+    --window-header-bg: #ddaab6;
     --text-color: #4a3b4c;
     --border-color: #ff85a2;
+}
+
+body.pastel-theme .note-editor:empty::before {
+    color: rgba(0, 0, 0, 0.35);
 }
 
 #top {
@@ -42,6 +45,12 @@ body.pastel-theme {
     padding: 0 16px;
     z-index: 999;
     border-bottom: 1px solid var(--border-color);
+}
+
+.top-left-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
 }
 
 .top-bar-btn {
@@ -92,6 +101,22 @@ body.pastel-theme {
     overflow: auto;
 }
 
+#welcome { top: 60px; left: 40px; width: 320px; }
+#notes { top: 120px; left: 380px; width: 360px; display: none; }
+#clicker { top: 100px; left: 760px; width: 300px; display: none; }
+
+.note-editor {
+    min-height: 120px;
+    outline: none;
+}
+
+.note-editor:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    display: block;
+}
+
 .windowheader {
     width: 100%;
     height: 28px;
@@ -112,6 +137,10 @@ body.pastel-theme {
     font-weight: bold;
 }
 
+.header-spacer {
+    width: 12px;
+}
+
 .closebutton {
     width: 12px;
     height: 12px;
@@ -125,4 +154,51 @@ body.pastel-theme {
     font-size: 14px;
     overflow-y: auto;
     max-height: 300px;
+}
+
+.clicker-content {
+    text-align: center;
+}
+
+#scoreDisplay {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+#cpsDisplay {
+    font-size: 12px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+#clickBtn {
+    font-size: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.08s ease-in-out;
+}
+
+.clicker-shop {
+    margin-top: 20px;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 10px;
+}
+
+#upgradeBtn {
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    background-color: var(--window-header-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+#upgradeStatus {
+    color: #f38ba8;
+    font-size: 11px;
+    margin: 6px 0 0 0;
+    height: 14px;
 }

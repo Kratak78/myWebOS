@@ -1,17 +1,26 @@
+var biggestIndex = 1;
+var score = 0;
+var clickPower = 1;
+var upgradeCost = 10;
+
+var themeToggleBtn = document.querySelector("#themeToggle");
+var noteField = document.querySelector("#noteText");
+var scoreDisplay = document.querySelector("#scoreDisplay");
+var cpsDisplay = document.querySelector("#cpsDisplay");
+var clickBtn = document.querySelector("#clickBtn");
+var upgradeBtn = document.querySelector("#upgradeBtn");
+
 function updateTime() {
     var currentTime = new Date().toLocaleTimeString();
     document.querySelector("#timeElement").innerHTML = currentTime;
 }
-setInterval(updateTime, 1000);
-updateTime();
-
-var biggestIndex = 1;
-var themeToggleBtn = document.querySelector("#themeToggle");
 
 function openWindow(element) {
     element.style.display = "flex";
     biggestIndex++;
     element.style.zIndex = biggestIndex;
+    
+    checkNotePlaceholder();
 }
 
 function closeWindow(element) {
@@ -78,10 +87,59 @@ function setupApp(appId) {
     }
 }
 
+function checkNotePlaceholder() {
+    if (noteField && noteField.innerText.trim() === "") {
+        noteField.innerHTML = "";
+    }
+}
+
+setInterval(updateTime, 1000);
+updateTime();
+
 themeToggleBtn.addEventListener("click", function() {
-    // Toggles the class on and off the body element
     document.body.classList.toggle("pastel-theme");
 });
 
+clickBtn.addEventListener("click", function() {
+    score += clickPower;
+    scoreDisplay.innerHTML = score;
+    
+    clickBtn.style.transform = "scale(1.2)";
+    setTimeout(() => { clickBtn.style.transform = "scale(1)"; }, 100);
+});
+
+upgradeBtn.addEventListener("click", function() {
+    var statusEl = document.querySelector("#upgradeStatus");
+    if (score >= upgradeCost) {
+        score -= upgradeCost;
+        clickPower += 1;
+        upgradeCost = Math.floor(upgradeCost * 1.8);
+        
+        scoreDisplay.innerHTML = score;
+        cpsDisplay.innerHTML = "Clicks per tap: +" + clickPower;
+        upgradeBtn.innerHTML = "Buy Upgrade (+1) - Cost: " + upgradeCost;
+        if (statusEl) statusEl.innerHTML = "";
+    } else {
+        if (statusEl) statusEl.innerHTML = "Not enough points!";
+    }
+});
+
+if (noteField) {
+    var savedNote = localStorage.getItem("savedOSNote");
+    if (savedNote && savedNote.trim() !== "") {
+        noteField.innerHTML = savedNote;
+    } else {
+        checkNotePlaceholder();
+    }
+
+    noteField.addEventListener("input", function() {
+        checkNotePlaceholder();
+        localStorage.setItem("savedOSNote", noteField.innerHTML);
+    });
+
+    noteField.addEventListener("blur", checkNotePlaceholder);
+}
+
+setupApp("clicker");
 setupApp("welcome");
 setupApp("notes");

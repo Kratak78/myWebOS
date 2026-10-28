@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal OS</title>
+    <title>MyWebOS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div id="top">
-        <div style="display: flex; gap: 16px; align-items: center;">
-            <span id="welcomeopen" class="top-bar-btn">MyOS</span>
+        <div class="top-left-group">
+            <span id="welcomeopen" class="top-bar-btn">MyWebOS</span>
             <span id="themeToggle" class="top-bar-btn">Theme</span>
         </div>
         <span id="timeElement">00:00:00</span>
@@ -25,29 +24,52 @@
             <div class="icon-box">📝</div>
             <p class="icon-label">Notes</p>
         </div>
+        <div id="clickerIcon" class="icon-container">
+            <div class="icon-box">🎮</div>
+            <p class="icon-label">Clicker</p>
+        </div>
     </div>
 
-    <div class="window" id="welcome" style="top: 100px; left: 100px; width: 320px;">
+    <div class="window" id="welcome">
         <div class="windowheader" id="welcomeheader">
             <div class="closebutton" id="welcomeclose"></div>
             <p class="headertext">Welcome</p>
-            <div style="width: 14px;"></div>
+            <div class="header-spacer"></div>
         </div>
         <div class="window-content">
-            <h1>Welcome to my OS</h1>
-            <p>This is a minimal webOS setup.</p>
-            <p>You can drag this window by the header bar!</p>
+            <h1>Welcome to my WebOS</h1>
+            <p>This is just a quick webOS, I made.</p>
+            <p>You can drag this window by the header bar.</p>
         </div>
     </div>
 
-    <div class="window" id="notes" style="top: 140px; left: 200px; width: 360px; display: none;">
+    <div class="window" id="notes">
         <div class="windowheader" id="notesheader">
             <div class="closebutton" id="notesclose"></div>
             <p class="headertext">Notes</p>
-            <div style="width: 14px;"></div>
+            <div class="header-spacer"></div>
         </div>
         <div class="window-content">
-            <p contenteditable="true">Click here to edit this text note directly...</p>
+            <p id="noteText" class="note-editor" contenteditable="true" data-placeholder="Click here to edit this text note directly..."></p>
+        </div>
+    </div>
+
+    <div class="window" id="clicker">
+        <div class="windowheader" id="clickerheader">
+            <div class="closebutton" id="clickerclose"></div>
+            <p class="headertext">Cookie Clicker</p>
+            <div class="header-spacer"></div>
+        </div>
+        <div class="window-content clicker-content">
+            <h2 id="scoreDisplay">0</h2>
+            <p id="cpsDisplay">Clicks per tap: +1</p>
+            
+            <button id="clickBtn">🍪</button>
+
+            <div class="clicker-shop">
+                <button id="upgradeBtn">Buy Upgrade (+1) - Cost: 10</button>
+                <p id="upgradeStatus"></p>
+            </div>
         </div>
     </div>
 
