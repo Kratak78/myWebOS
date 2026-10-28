@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="top">
+        <div style="display: flex; gap: 16px; align-items: center;">
+            <span id="welcomeopen" class="top-bar-btn">MyOS</span>
+            <span id="themeToggle" class="top-bar-btn">Theme</span>
+        </div>
+        <span id="timeElement">00:00:00</span>
+    </div>
+
+    <div id="desktopApps">
+        <div id="welcomeIcon" class="icon-container">
+            <div class="icon-box">🏠</div>
+            <p class="icon-label">Home</p>
+        </div>
+        <div id="notesIcon" class="icon-container">
+            <div class="icon-box">📝</div>
+            <p class="icon-label">Notes</p>
+        </div>
+    </div>
+
+    <div class="window" id="welcome" style="top: 100px; left: 100px; width: 320px;">
+        <div class="windowheader" id="welcomeheader">
+            <div class="closebutton" id="welcomeclose"></div>
+            <p class="headertext">Welcome</p>
+            <div style="width: 14px;"></div>
+        </div>
+        <div class="window-content">
+            <h1>Welcome to my OS</h1>
+            <p>This is a minimal webOS setup.</p>
+            <p>You can drag this window by the header bar!</p>
+        </div>
+    </div>
+
+    <div class="window" id="notes" style="top: 140px; left: 200px; width: 360px; display: none;">
+        <div class="windowheader" id="notesheader">
+            <div class="closebutton" id="notesclose"></div>
+            <p class="headertext">Notes</p>
+            <div style="width: 14px;"></div>
+        </div>
+        <div class="window-content">
+            <p contenteditable="true">Click here to edit this text note directly...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

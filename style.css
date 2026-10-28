@@ -1,0 +1,128 @@
+
+:root {
+    --bg-color: #1e1e2e;
+    --window-bg: #252538;
+    --window-header-bg: #31314a;
+    --text-color: #cdd6f4;
+    --border-color: #89b4fa;
+    --font-family: monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+body.pastel-theme {
+    --bg-color: #ffe6f0;
+    --window-bg: #ffffff;
+    --window-header-bg: #ffd1dc;
+    --text-color: #4a3b4c;
+    --border-color: #ff85a2;
+}
+
+#top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 16px;
+    z-index: 999;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.top-bar-btn {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#desktopApps {
+    padding-top: 50px;
+    padding-left: 20px;
+    display: flex;
+    gap: 16px;
+}
+
+.icon-container {
+    text-align: center;
+    cursor: pointer;
+    width: 70px;
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background-color: var(--window-header-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0 auto 4px auto;
+}
+
+.icon-label {
+    font-size: 12px;
+    margin: 0;
+}
+
+.window {
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    position: absolute;
+    background-color: var(--window-bg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    resize: both;
+    overflow: auto;
+}
+
+.windowheader {
+    width: 100%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    cursor: grab;
+    justify-content: space-between;
+    background-color: var(--window-header-bg);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    box-sizing: border-box;
+    padding: 0 8px;
+}
+
+.headertext {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.closebutton {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    background-color: #f38ba8;
+    border-radius: 50%;
+}
+
+.window-content {
+    padding: 14px;
+    font-size: 14px;
+    overflow-y: auto;
+    max-height: 300px;
+}
