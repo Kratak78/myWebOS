@@ -10,7 +10,6 @@
     <div id="top">
         <div class="top-left-group">
             <span id="welcomeopen" class="top-bar-btn">MyWebOS</span>
-            <span id="themeToggle" class="top-bar-btn">Theme</span>
         </div>
         <span id="timeElement">00:00:00</span>
     </div>
@@ -28,9 +27,13 @@
             <div class="icon-box">🎮</div>
             <p class="icon-label">Clicker</p>
         </div>
+        <div id="settingsIcon" class="icon-container">
+            <div class="icon-box">⚙️</div>
+            <p class="icon-label">Settings</p>
+        </div>
     </div>
 
-    <div class="window" id="welcome">
+    <div class="window active" id="welcome">
         <div class="windowheader" id="welcomeheader">
             <div class="closebutton" id="welcomeclose"></div>
             <p class="headertext">Welcome</p>
@@ -51,6 +54,7 @@
         </div>
         <div class="window-content">
             <p id="noteText" class="note-editor" contenteditable="true" data-placeholder="Click here to edit this text note directly..."></p>
+            <button id="clearNotesBtn" class="notes-action-btn">Clear Note</button>
         </div>
     </div>
 
@@ -70,6 +74,28 @@
                 <button id="upgradeBtn">Buy Upgrade (+1) - Cost: 10</button>
                 <p id="upgradeStatus"></p>
             </div>
+        </div>
+    </div>
+
+    <div class="window" id="settings">
+        <div class="windowheader" id="settingsheader">
+            <div class="closebutton" id="settingsclose"></div>
+            <p class="headertext">Settings</p>
+            <div class="header-spacer"></div>
+        </div>
+        <div class="window-content">
+            <p class="settings-label">Appearance</p>
+            <button id="themeToggle" class="settings-btn">Toggle Pastel Theme</button>
+            
+            <p class="settings-label settings-spacing">Background Wallpaper</p>
+            <button id="wallpaperBtn" class="settings-btn">Browse File...</button>
+            <input type="file" id="wallpaperInput" accept="image/*" style="display: none;">
+
+            <div id="wallpaperDropZone" class="drop-zone">
+                <p>Drag & drop image here<br>or paste (Ctrl+V)</p>
+            </div>
+
+            <button id="removeWallpaperBtn" class="settings-btn remove-btn">Remove Wallpaper</button>
         </div>
     </div>
 

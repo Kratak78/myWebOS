@@ -9,6 +9,9 @@
 
 body {
     background-color: var(--bg-color);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--text-color);
     font-family: var(--font-family);
     margin: 0;
@@ -18,15 +21,35 @@ body {
 }
 
 body.pastel-theme {
-    --bg-color: #ffe6f0;
+    --bg-color: #fff0f5;;
     --window-bg: #ffffff;
-    --window-header-bg: #ddaab6;
+    --window-header-bg: #ffd1dc;
     --text-color: #4a3b4c;
     --border-color: #ff85a2;
 }
 
+body.pastel-theme #top {
+    background-color: rgba(255, 209, 220, 0.7);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.pastel-theme .window.active {
+    border-color: #ff6584;
+    box-shadow: 0 0 14px rgba(255, 101, 132, 0.65), 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
 body.pastel-theme .note-editor:empty::before {
     color: rgba(0, 0, 0, 0.35);
+}
+
+body.pastel-theme .remove-btn {
+    background-color: #ffd1dc;
+    color: var(--text-color);
+    border-color: #ff85a2;
+}
+
+body.pastel-theme .remove-btn:hover {
+    background-color: #ffb3c6;
 }
 
 #top {
@@ -71,6 +94,12 @@ body.pastel-theme .note-editor:empty::before {
     width: 70px;
 }
 
+.icon-container:hover .icon-box {
+    transform: translateY(-2px);
+    transition: transform 0.15s ease;
+    border-color: var(--border-color);
+}
+
 .icon-box {
     width: 48px;
     height: 48px;
@@ -100,14 +129,20 @@ body.pastel-theme .note-editor:empty::before {
     resize: both;
     overflow: auto;
 }
+.window.active {
+    border-color: #89dceb;
+    box-shadow: 0 0 12px rgba(137, 220, 235, 0.4), 0 12px 30px rgba(0, 0, 0, 0.6);
+}
 
 #welcome { top: 60px; left: 40px; width: 320px; }
 #notes { top: 120px; left: 380px; width: 360px; display: none; }
 #clicker { top: 100px; left: 760px; width: 300px; display: none; }
+#settings { top: 140px; left: 200px; width: 280px; display: none; }
 
 .note-editor {
     min-height: 120px;
     outline: none;
+    margin: 0;
 }
 
 .note-editor:empty::before {
@@ -115,6 +150,71 @@ body.pastel-theme .note-editor:empty::before {
     color: rgba(255, 255, 255, 0.4);
     pointer-events: none;
     display: block;
+}
+
+.notes-action-btn {
+    margin-top: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    background-color: var(--window-header-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.settings-label {
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.settings-spacing {
+    margin-top: 16px;
+}
+
+.settings-btn {
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    background-color: var(--window-header-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.remove-btn {
+    margin-top: 8px;
+    background-color: #31314a;
+    color: #f38ba8;
+    border-color: #f38ba8;
+}
+
+.remove-btn:hover {
+    background-color: rgba(243, 139, 168, 0.15);
+}
+
+.drop-zone {
+    margin-top: 10px;
+    border: 2px dashed var(--border-color);
+    border-radius: 6px;
+    padding: 16px 10px;
+    text-align: center;
+    font-size: 11px;
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.drop-zone.dragover {
+    background-color: var(--border-color);
+    color: var(--bg-color);
+    opacity: 1;
 }
 
 .windowheader {
@@ -129,6 +229,10 @@ body.pastel-theme .note-editor:empty::before {
     border-top-right-radius: 7px;
     box-sizing: border-box;
     padding: 0 8px;
+}
+
+.windowheader.dragging {
+    cursor: grabbing;
 }
 
 .headertext {
