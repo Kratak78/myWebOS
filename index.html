@@ -31,6 +31,10 @@
             <div class="icon-box">⚙️</div>
             <p class="icon-label">Settings</p>
         </div>
+        <div id="musicIcon" class="icon-container">
+            <div class="icon-box">🎵</div>
+            <p class="icon-label">Music</p>
+        </div>
     </div>
 
     <div class="window active" id="welcome">
@@ -88,7 +92,7 @@
             <button id="themeToggle" class="settings-btn">Toggle Pastel Theme</button>
             
             <p class="settings-label settings-spacing">Background Wallpaper</p>
-            <button id="wallpaperBtn" class="settings-btn">Browse File...</button>
+            <button id="wallpaperBtn" class="settings-btn">Browse Files...</button>
             <input type="file" id="wallpaperInput" accept="image/*" style="display: none;">
 
             <div id="wallpaperDropZone" class="drop-zone">
@@ -96,6 +100,34 @@
             </div>
 
             <button id="removeWallpaperBtn" class="settings-btn remove-btn">Remove Wallpaper</button>
+        </div>
+    </div>
+
+    <div class="window" id="music">
+        <div class="windowheader" id="musicheader">
+            <div class="closebutton" id="musicclose"></div>
+            <p class="headertext">Music</p>
+            <div class="header-spacer"></div>
+        </div>
+        <div class="window-content">
+            <div id="musicList"></div>
+            <p id="nowPlaying"></p>
+            
+            <div class="music-controls">
+                <button id="Prevbtn">⏮</button>
+                <button id="Playbtn">▶</button>
+                <button id="Nextbtn">⏭</button>
+            </div>
+            <input type="range" id="progressBar" min="0" max="100" value="0">
+            <span id="timeText">0:00 / 0:00</span>
+
+            <p class="music-label music-spacing">Upload a song</p>
+            <button id="musicBtn" class="music-btn">Browse Files...</button>
+            <input type="file" id="musicInput" accept="audio/*" multiple style="display: none;">
+
+            <div id="musicDropZone" class="drop-zone">
+                <p>Drag & drop audio file here</p>
+            </div>
         </div>
     </div>
 

@@ -138,6 +138,7 @@ body.pastel-theme .remove-btn:hover {
 #notes { top: 120px; left: 380px; width: 360px; display: none; }
 #clicker { top: 100px; left: 760px; width: 300px; display: none; }
 #settings { top: 140px; left: 200px; width: 280px; display: none; }
+#music { top: 160px; left: 300px; width: 280px; display: none; }
 
 .note-editor {
     min-height: 120px;
@@ -257,7 +258,7 @@ body.pastel-theme .remove-btn:hover {
     padding: 14px;
     font-size: 14px;
     overflow-y: auto;
-    max-height: 300px;
+    max-height: 450px;
 }
 
 .clicker-content {
@@ -305,4 +306,99 @@ body.pastel-theme .remove-btn:hover {
     font-size: 11px;
     margin: 6px 0 0 0;
     height: 14px;
+}
+
+.music-label {
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.music-spacing {
+    margin-top: 16px;
+}
+
+.music-btn {
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    background-color: var(--window-header-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+#musicList {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.music-row {
+    width: 100%;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    background-color: var(--window-header-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+}
+
+.music-row:hover {
+    background-color: rgba(137, 220, 235, 0.15);
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+.music-controls button {
+    padding: 3px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    background-color: var(--window-header-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.music-controls button:hover {
+    background-color: rgba(137, 220, 235, 0.15);
+}
+
+#progressBar {
+    width: 100%;
+    accent-color: var(--border-color);
+}
+
+#timeText {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+#nowPlaying {
+    font-size: 12px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+    text-align: center;
 }
