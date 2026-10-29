@@ -12,6 +12,7 @@ A simple WebOS I made for the Stardance challenge. Built with HTML, CSS and Java
   - Notes
   - Cookie Clicker
   - Settings
+  - music (you have to upload your own audio files)
 
 ## how to use it:
 Clone the repo and open `index.html` in a browser, or open the hosted version through the link on top of this README.
